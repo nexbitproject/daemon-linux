@@ -83,4 +83,5 @@ maxsendbuffer=500
 #zmqpubhashtx=tcp://0.0.0.0:13520
 #zmqpubhashblock=tcp://0.0.0.0:13520
 
-
+```
+For more info mail [developer@nexbit.io]

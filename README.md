@@ -7,44 +7,6 @@ Create droplet ubuntu 18.04 64 bit
 Choose Singapore/EU zone (Our most of the traffic comes from those zone)
 We are using libboost 1.61.1, some linux distribution does not have that
 
-
-Dependencies for Linux users
-STEP-1
-******
-sudo apt-get -qq update
-sudo apt-get -qq upgrade
-sudo apt-get -qq autoremove
-sudo apt-get install aptitude
-sudo apt-get -qq install wget htop xz-utils build-essential libtool autoconf automake software-properties-common
-sudo apt-get -qq install protobuf-compiler git pkg-config aptitude
-sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils git cmake libboost-all-dev libgmp3-dev
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt-get update
-sudo apt-get install libdb4.8-dev libdb4.8++-dev
-sudo apt-get install libdb5.3++-dev
-sudo apt-get install libminiupnpc-dev
-sudo apt-get install libboost1.61.1
-** If libboost creates problem
-sudo add-apt-repository ppa:mhier/libboost-latest
-sudo apt update
-Then
-Add this:  deb http://ppa.launchpad.net/mhier/libboost-latest/ubuntu bionic main
-to " /etc/apt/sources.list "
-sudo apt-get update wget http://cz.archive.ubuntu.com/ubuntu/pool/universe/b/boost-defaults/libboost-all-dev_1.65.1.0ubuntu1_amd64.deb
-dpkg -i libboost-all-dev_1.65.1.0ubuntu1_amd64.deb
-sudo apt install libboost-all-dev
-sudo apt-get -f install
-
-STEP-2
-*******
-sudo iptables -I INPUT 1 -p tcp --dport  13520  -j ACCEPT [if port not open]
-wget  https://github.com/nexbitproject/daemon-linux/releases/download/v1.0.0.0-g/nexbitd
-mkdir .nexbit
-sudo nano .nexbit/nexbit.conf  [paste config here]
-sudo chmod 644 .nexbit/nexbit.conf  [look carefully in config provide for multiple instances use one for RPC user/pass]
-sudo chmod u+x  nexbitd
-nexbitd -d
 [ Now you can see its start syncing and working ]
 CMD & Param lists of daemon: 
 ***************************
@@ -130,17 +92,25 @@ UI options:
 ```
 Config for Daemon. Use linux ubuntu 18.04.4 LTS 64 bit for bext performance.
 
-If anyone face connectivity issues then can run this script:https://gist.githubusercontent.com/bitbd83/8af838fb611b530b93c966f952ba64e9/raw/6ad3570a5e78f06645159ca89ee948907ba8d305/iptables.sh
+If anyone face connectivity issues then can run this script:
+```bash
+wget https://gist.githubusercontent.com/bitbd83/8af838fb611b530b93c966f952ba64e9/raw/6ad3570a5e78f06645159ca89ee948907ba8d305/iptables.sh
 
+Run ./iptables.sh
+```
 And We make easy deployment of nodes
 *************************************
 1. Download nexbit.conf < If any modification needs then modify >
 ```bash
-   https://gist.githubusercontent.com/bitbd83/94f43f99b1a619e6ea69d78dfa69d6b0/raw/401a0d080bfc316bbbdc351eeb313dd207aaa239/nexbit.conf
+
+   wget https://gist.githubusercontent.com/bitbd83/94f43f99b1a619e6ea69d78dfa69d6b0/raw/401a0d080bfc316bbbdc351eeb313dd207aaa239/nexbit.conf
+   
+   Open it with nano or vim then edit & save.
    ```
    
 2. Download setup script
    ```bash
+   
    wget https://gist.githubusercontent.com/bitbd83/c68ecb38772402ca663a599a4ee8243e/raw/d38f5dc67c060e4d4755e6a3b6b501b0afda97ee/setup.sh
    
    ```

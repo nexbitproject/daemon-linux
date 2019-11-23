@@ -130,85 +130,25 @@ UI options:
 ```
 Config for Daemon. Use linux ubuntu 18.04.4 LTS 64 bit for bext performance.
 
+If anyone face connectivity issues then can run this script:https://gist.githubusercontent.com/bitbd83/8af838fb611b530b93c966f952ba64e9/raw/6ad3570a5e78f06645159ca89ee948907ba8d305/iptables.sh
+
+And We make easy deployment of nodes
+*************************************
+1. Download nexbit.conf < If any modification needs then modify >
 ```bash
-# Conf for user2 on same server   *Upto 3/4 user /Node can be be run on a 5$ Digital Ocean VPS
-#Server Config
-listen=1
-daemon=1
-server=1
-bind=[::1]:13765
-
-#RPC Details
-rpcuser=nexbitrpc<anything strong>
-rpcpassword=<anything strong>
-rpcallowip=<anyip>
-rpcport=14676 <anyport>
-
-
-#====================================================
-
-#Server Config
-listen=1
-daemon=1
-server=1
-#RPC Details
-rpcuser=nexbitrpc<anything strong>
-rpcpassword=<anything strong>
-rpcallowip=<anyip>
-rpcport=14876 <anyport but 13519 is for nexbitd>
-#========================================
-
-
-#P2P Port
-port=13520
-
-#Fixed seed node
+   https://gist.githubusercontent.com/bitbd83/94f43f99b1a619e6ea69d78dfa69d6b0/raw/401a0d080bfc316bbbdc351eeb313dd207aaa239/nexbit.conf
+   ```
+   
+2. Download setup script
+   ```bash
+   wget https://gist.githubusercontent.com/bitbd83/c68ecb38772402ca663a599a4ee8243e/raw/d38f5dc67c060e4d4755e6a3b6b501b0afda97ee/setup.sh
+   
+   ```
+3. Run [setup.sh] by ./setup.sh  
+4. Middle of the setup process ask for config, then you just [paste] your pre-downloaded nexbit.conf file and CTRL+X
+  
  
-
-#Nodes to be added
-
-seednode=connect=157.230.10.85
-connect=167.71.78.206
-connect=157.245.76.203
-connect=167.172.239.154
-connect=165.227.225.78
-connect=157.230.99.176
-connect=206.189.117.70
-connect=167.71.140.104
-connect=138.197.135.237
-connect=159.65.136.159
-connect=165.22.219.149
-discover=1
-
-#utilities
-txindex=0
-dbcache=25
-
-printtoconsole=1
-#rescan=1
-dns=1
-dnsseed=1
-synctime=0
-banscore=30
-debug=mempool
-logtimestamps=1
-bantime=86400
-forcednsseed=1
-
-
-#capacity
-maxconnections=100
-maxmempool=50
-maxreceivebuffer=2500
-maxsendbuffer=500
-
-
-
-# ZeroMQ notification options:
-#zmqpubrawblock=tcp://0.0.0.0:13520
-#zmqpubrawtx=tcp://0.0.0.0:13520
-#zmqpubhashtx=tcp://0.0.0.0:13520
-#zmqpubhashblock=tcp://0.0.0.0:13520
+ 
 
 ```
 For more info mail [developer@nexbit.io]
